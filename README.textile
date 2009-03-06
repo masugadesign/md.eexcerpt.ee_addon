@@ -1,0 +1,34 @@
+h1. MD Eexcerpt
+
+To make decent excerpts, I needed something that stripped out all tags first and then limited the remaining words, all in one fell swoop, so I combined those functions into one plugin. Rick Ellis originally wrote Word Limit, then Vik Rubenfeld modified that into Word Limit Plus. I took Vik's modification and added some HTML stripping for your eexcerpting pleasure.
+
+For some background on this plugin, you can review these threads:
+
+"Autogenerating an excerpt when a summary doesn't exist":http://expressionengine.com/forums/viewthread/43985/
+"Definitive answer on Filter_HTML status, update or alternative, please?":http://expressionengine.com/forums/viewthread/44145/
+
+h2. Info
+
+Developed by Ryan Masuga, http://masugadesign.com
+
+Based on: pi.word_limit_plus.php
+
+Docs: "MD Eexcerpt":http://www.masugadesign.com/the-lab/scripts/eexcerpt/ <br />
+EE Extension Info: http://expressionengine.com/docs/development/extensions.html
+
+Also see the "related forum thread at the EE Forums":http://expressionengine.com/forums/viewthread/54919/.
+
+h2. Changelog
+
+*1.1.0 (Mar 6, 2009)*
+
+* Renamed to "MD" Eexcerpt
+* Fixed problem with strings that were the exact length as the "stop_after" parameter.
+* Added trim() ina couple places to keep things tidy
+* Internal cleanup
+* Added a new optional "append" parameter for further control
+* Updated example usage
+
+1.0.0 (Jun 25, 2007)
+
+* Initial release
