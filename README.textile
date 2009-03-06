@@ -24,7 +24,7 @@ h2. Changelog
 
 * Renamed to "MD" Eexcerpt
 * Fixed problem with strings that were the exact length as the "stop_after" parameter.
-* Added trim() ina couple places to keep things tidy
+* Added trim() in a couple places to keep things tidy
 * Internal cleanup
 * Added a new optional "append" parameter for further control
 * Updated example usage
