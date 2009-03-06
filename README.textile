@@ -4,7 +4,7 @@ To make decent excerpts, I needed something that stripped out all tags first and
 
 For some background on this plugin, you can review these threads:
 
-"Autogenerating an excerpt when a summary doesn't exist":http://expressionengine.com/forums/viewthread/43985/
+"Autogenerating an excerpt when a summary doesn't exist":http://expressionengine.com/forums/viewthread/43985/<br />
 "Definitive answer on Filter_HTML status, update or alternative, please?":http://expressionengine.com/forums/viewthread/44145/
 
 h2. Info
