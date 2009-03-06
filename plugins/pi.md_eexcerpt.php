@@ -25,16 +25,16 @@ Modified: 02 26 2007 by Ryan Masuga
 
 
 $plugin_info = array(
-						'pi_name'			=> 'Eexcerpt',
+						'pi_name'			=> 'MD Eexcerpt',
 						'pi_version'		=> '1.0',
 						'pi_author'			=> 'Rick Ellis; additions by Vik Rubenfeld; then Ryan Masuga',
 						'pi_author_url'		=> 'http://www.pmachine.com/',
 						'pi_description'	=> 'Permits you to limit the number of words in some text. After stripping tags.',
-						'pi_usage'			=> Eexcerpt::usage()
+						'pi_usage'			=> Md_eexcerpt::usage()
 					);
 
 
-class Eexcerpt {
+class Md_eexcerpt {
 
     var $return_data;
 
