@@ -10,7 +10,7 @@ pi.word_limit_plus.php by Vik Rubenfeld
 INFO --------------------------------------------------------------------------
 Developed by: Ryan Masuga, masugadesign.com
 Created:   Feb 26 2007
-Last Mod:  Mar 06 2009
+Last Mod:  Apr 03 2009
 
 CHANGELOG & OTHER INFO --------------------------------------------------------
 See README.textile
@@ -42,7 +42,7 @@ Class Md_eexcerpt {
 		$stop_after = ( ! $TMPL->fetch_param('stop_after')) ? '500' :  $TMPL->fetch_param('stop_after');
 		
 		$if_Exceeds = ( ! $TMPL->fetch_param('if_exceeds')) ? '500' :  $TMPL->fetch_param('if_exceeds');
-		$append = ( ! $TMPL->fetch_param('append')) ? '&hellip' :  $TMPL->fetch_param('append');
+		$append = ( ! $TMPL->fetch_param('append')) ? '&hellip;' :  $TMPL->fetch_param('append');
 		$the_link = ( ! $TMPL->fetch_param('the_link')) ? '' :  $TMPL->fetch_param('the_link');
 
 		if ( ! is_numeric($stop_after))
