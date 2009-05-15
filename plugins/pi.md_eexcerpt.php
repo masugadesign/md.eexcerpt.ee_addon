@@ -10,20 +10,20 @@ pi.word_limit_plus.php by Vik Rubenfeld
 INFO --------------------------------------------------------------------------
 Developed by: Ryan Masuga, masugadesign.com
 Created:   Feb 26 2007
-Last Mod:  Apr 03 2009
+Last Mod:  Apr 15 2009
 
 CHANGELOG & OTHER INFO --------------------------------------------------------
 See README.textile
 =============================================================================== */
 
 $plugin_info = array(
-			'pi_name'			=> 'MD Eexcerpt',
-			'pi_version'		=> '1.1.0',
-			'pi_author'			=> 'Ryan Masuga',
-			'pi_author_url'		=> 'http://masugadesign.com/',
-			'pi_description'	=> 'Permits you to limit the number of words in some text. After stripping tags.',
-			'pi_usage'			=> Md_eexcerpt::usage()
-		);
+  'pi_name'        => 'MD Eexcerpt',
+  'pi_version'     => '1.1.0',
+  'pi_author'      => 'Ryan Masuga',
+  'pi_author_url'  => 'http://masugadesign.com/',
+  'pi_description' => 'Permits you to limit the number of words in some text. After stripping tags.',
+  'pi_usage'       => Md_eexcerpt::usage()
+);
 
 
 Class Md_eexcerpt {
@@ -129,7 +129,7 @@ ob_start();
 ?>
 Wrap anything you want to be processed between the tag pairs. Works exactly like word_limit_plus, but strips tags.
 
-{exp:md_eexcerpt if_exceeds="60" stop_after="40" append="&nbsp;&rarr;" the_link="<a href='{title_permalink=weblog/comments}'>MORE...</a>"}text you want processed{/exp:eexcerpt}
+{exp:md_eexcerpt if_exceeds="60" stop_after="40" append="&nbsp;&rarr;" the_link="<a href='{title_permalink=weblog/comments}'>MORE...</a>"}text you want processed{/exp:md_eexcerpt}
 
 REFERENCE:  
 
