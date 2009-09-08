@@ -18,7 +18,7 @@ See README.textile
 
 $plugin_info = array(
   'pi_name'        => 'MD Eexcerpt',
-  'pi_version'     => '1.1.0',
+  'pi_version'     => '1.1.1',
   'pi_author'      => 'Ryan Masuga',
   'pi_author_url'  => 'http://masugadesign.com/',
   'pi_description' => 'Permits you to limit the number of words in some text. After stripping tags.',
