@@ -10,7 +10,7 @@ pi.word_limit_plus.php by Vik Rubenfeld
 INFO --------------------------------------------------------------------------
 Developed by: Ryan Masuga, masugadesign.com
 Created:   Feb 26 2007
-Last Mod:  Apr 15 2009
+Last Mod:  Sep 07 2009
 
 CHANGELOG & OTHER INFO --------------------------------------------------------
 See README.textile
@@ -30,7 +30,6 @@ Class Md_eexcerpt {
 
     var $return_data;
 
-
     // ----------------------------------------
     //  eexcerpt
     // ----------------------------------------
@@ -39,77 +38,74 @@ Class Md_eexcerpt {
     {
         global $TMPL, $FNS;
 
-		$stop_after = ( ! $TMPL->fetch_param('stop_after')) ? '500' :  $TMPL->fetch_param('stop_after');
-		
-		$if_Exceeds = ( ! $TMPL->fetch_param('if_exceeds')) ? '500' :  $TMPL->fetch_param('if_exceeds');
-		$append = ( ! $TMPL->fetch_param('append')) ? '&hellip;' :  $TMPL->fetch_param('append');
-		$the_link = ( ! $TMPL->fetch_param('the_link')) ? '' :  $TMPL->fetch_param('the_link');
+    $stop_after = ( ! $TMPL->fetch_param('stop_after')) ? '500' :  $TMPL->fetch_param('stop_after');
+    
+    $if_Exceeds = ( ! $TMPL->fetch_param('if_exceeds')) ? '500' :  $TMPL->fetch_param('if_exceeds');
+    $append = ( ! $TMPL->fetch_param('append')) ? '&hellip;' :  $TMPL->fetch_param('append');
+    $the_link = ( ! $TMPL->fetch_param('the_link')) ? '' :  $TMPL->fetch_param('the_link');
+    
+    if ( ! is_numeric($stop_after))
+      $stop_after = 500;
+                
+    if ( ! is_numeric($if_Exceeds))
+      $if_Exceeds = 500;
 
-		if ( ! is_numeric($stop_after))
-			$stop_after = 500;
+    if ($if_Exceeds < $stop_after) 
+    {
+      $if_Exceeds = $stop_after;
+    }
                 
-		if ( ! is_numeric($if_Exceeds))
-			$if_Exceeds = 500;
-			
-		if ($if_Exceeds < $stop_after) 
-		{
-			$if_Exceeds = $stop_after;
-		}
-                
-		$this->return_data = $this->_dirty_work($TMPL->tagdata, $if_Exceeds, $stop_after, $the_link, $append);
+    $this->return_data = $this->_dirty_work($TMPL->tagdata, $if_Exceeds, $stop_after, $the_link, $append);
     }
 
     
     function _dirty_work($str, $if_Exceeds = 500, $stop_after = 500, $the_link = "", $append="")
     {
-			global $TMPL;
-			// strip out the tags first
-			// http://us2.php.net/manual/en/function.strip-tags.php#68749
-			$searchcrap = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript
+      global $TMPL;
+      // strip out the tags first
+      // http://us2.php.net/manual/en/function.strip-tags.php#68749
+      $searchcrap = array('@<script[^>]*?>.*?</script>@si',  // Strip out javascript
                '@<[\\/\\!]*?[^<>]*?>@si',          // Strip out HTML tags
                '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
                '@<![\\s\\S]*?--[ \\t\\n\\r]*>@'    // Strip multi-line comments including CDATA
-			);
+               );
 
-			$str = preg_replace($searchcrap, '', $str);
-	
-	
+      $str = preg_replace($searchcrap, '', $str);
+
+
         if (strlen($str) < $stop_after) 
         {
             return $str;
         }
         
-        $str = str_replace("\n", " ", $str);        
-        
+        $str = str_replace("\n", " ", $str);
         $str = preg_replace("/\s+/", " ", $str);
-        
-				$str = trim($str);
-
+        $str = trim($str);
         $word = explode(" ", $str);
-        
         $theCount = count($word);
-
-		if (($theCount <= $stop_after) && ($theCount < $if_Exceeds))
-		{
-			return $str;
-		}
-                
+        
+        // if what you're counting is LESS than or equal to the stop after, or
+        // LESS than or equal to the 'exceeeds' then there is nothing to do
+        
+        if (($theCount <= $stop_after) || ($theCount <= $if_Exceeds))
+        {
+          return $str;
+        }
+        // we have something to do. carry on...  
         $str = "";
                  
-        for ($i = 0; $i < $stop_after + 1; $i++) 
+        for ($i = 0; $i < $stop_after; $i++) 
         {
+          if (isset($word[$i])) 
+          {
             $str .= $word[$i]." ";
+          }
         }
         
-				$str = trim($str); // trim again to get that last space
+        $str = trim($str); // trim again to get that last space
 
-        if ($append != "") {
-        	$str .= $append;
-        	}
-
-        if ($the_link != "") {
-        	$str .= $the_link;
-        	}
+        if ($append != "") {$str .= $append;}
+        if ($the_link != "") {$str .= $the_link;}
 
         return trim($str); 
     }
@@ -147,6 +143,6 @@ ob_end_clean();
 return $buffer;
 }
 // END
+
+/* END class */
 }
-// END CLASS
-?>
